@@ -1,5 +1,6 @@
 //Menu Component
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import { firestore } from '../firebase/firebase';
 
 function MenuItem({ image, title, description, onClick }) {
   return (
@@ -41,6 +42,34 @@ function MenuPage({ menuItems }) {
   const handleItemClick = (image, title, description) => {
     setSelectedItem({ image, title, description });
   };
+
+  useEffect(() => {
+    const fetchMenuData = async () => {
+      try {
+        const menuSnapshot = await firestore
+          .collection('menu') // Nombre de la colección "menu"
+          .doc('vsoe9Umoblhf7880a3QY') // ID del documento en "menu"
+          .collection('vsoe9Umoblhf7880a3QY') // Nombre de la subcolección "vsoe9Umoblhf7880a3QY"
+          .get();
+
+        if (!menuSnapshot.empty) {
+          // Verifica si hay documentos en la subcolección
+          menuSnapshot.forEach((doc) => {
+            console.log('ID del documento:', doc.id);
+            console.log('Datos del documento:', doc.data());
+            // Aquí puedes procesar los datos y mostrarlos en tu componente si es necesario
+          });
+        } else {
+          console.log('No se encontraron documentos en la subcolección');
+        }
+      } catch (error) {
+        console.error('Error al obtener datos del menú:', error);
+      }
+    };
+
+    fetchMenuData(); // Llama a la función para obtener datos del menú cuando el componente se monta
+  }, []);
+
 
   return (
     <div className="menu-page">

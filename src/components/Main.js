@@ -4,7 +4,22 @@ import NavigationBar from './Navbar';
 import Reservas from './Reservas';
 import Menu from './Menu';
 import Blog from './Blog';
+import { firestore } from '../firebase/firebase';
+import { collection, doc, getDoc } from "firebase/firestore";
 
+async function checkDatabaseData(){
+ // const docRef = collection(firestore, "menu");
+ const docRef2 = doc(firestore, "menu", "vsoe9Umoblhf7880a3QY");
+   
+ const docSnap = await getDoc(docRef2);
+  if (docSnap.exists()) {
+    console.log("Document data:", docSnap.data());
+  } else {
+    // docSnap.data() will be undefined in this case
+    console.log("No such document!");
+  }
+  
+}
 function Main() {
 
   const [vistaActual, setVistaActual] = useState('menu');
@@ -40,6 +55,8 @@ function Main() {
       description: 'Una cerveza pilsner checa con un sabor a malta y lúpulo equilibrado.',
     },
   ];
+
+  checkDatabaseData()
 
   return (
     <div>

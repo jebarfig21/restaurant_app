@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { agregarReserva } from '../controllers/agregarReserva';
 
 function Reservas() {
   const [startDate, setStartDate] = useState(null);
@@ -8,7 +9,7 @@ function Reservas() {
   const [lastName, setLastName] = useState('');
   const [reservationTime, setReservationTime] = useState('');
   const [partySize, setPartySize] = useState('');
-
+  
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // Aquí puedes realizar alguna acción con los datos del formulario, como enviarlos a un servidor
@@ -20,12 +21,31 @@ function Reservas() {
       partySize,
     });
   };
+  const handleAgregarReserva = () => {
+    // ... lógica para obtener los datos de la reserva
+    console.log('Datos del formulario:', {
+      name,
+      lastName,
+      reservationDate: startDate,
+      reservationTime,
+      partySize,
+    });
+    const reservaData = {
+      // ... datos de la reserva
+      name
+    };
 
+    agregarReserva(reservaData);
+  };
+
+  /**
+   * Render de componente
+   */
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-4">
-          <form onSubmit={handleFormSubmit}>
+          <form onSubmit={handleAgregarReserva}>
             <h2>Reserva</h2>
             <div className="form-group">
               <label htmlFor="name">Nombre</label>

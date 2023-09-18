@@ -1,6 +1,9 @@
+
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+;
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -9,6 +12,11 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID
 };
+
+
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-  export default firebaseConfig;
+const firestore = getFirestore(app);
+const auth = getAuth(app);
+console.log(firestore)
+export { firestore, auth };
