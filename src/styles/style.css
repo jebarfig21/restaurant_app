@@ -1,0 +1,37 @@
+/* Cambiar el color de fondo del Navbar claro */
+.gold {
+  background-color: #F9DB5C; /* Cambia este color al que desees */
+}
+
+/* Cambiar el color de fondo del Navbar oscuro */
+.navbar-dark {
+  background-color: #272727; /* Cambia este color al que desees */
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #272727; /* Cambia este color al que desees */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #F9DB5C; /* Cambia este color al que desees */
+}
+
+/* Estilo para un botón con fondo transparente */
+.transparent-button .button-container {
+  background-color: transparent; /* Establece el fondo como transparente */
+  border: 2px solid #333; /* Agrega un borde opcional para resaltar el botón */
+  color: #eb0909; /* Color del texto del botón */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s ease; /* Agrega una transición suave para el cambio de color de fondo */
+}
+
+/* Cambia el color de fondo cuando el botón se coloca */
+.transparent-button:hover {
+  background-color: #cc0e0e; /* Cambia el color de fondo en el hover */
+  color: #e90c0c; /* Cambia el color del texto en el hover */
+}
+
+
+
+
