@@ -1,0 +1,64 @@
+/* MenuItem.css */
+
+.menu-item {
+    width: 80%;
+    padding: 8px;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .menu-item-image {
+    width: 100%;
+    max-height: 60%;
+    object-fit: cover;
+  }
+  
+  .menu-item-details {
+    margin-top: 8px;
+  }
+
+  .menu-page {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .menu-container {
+    width: 80%; /* Ancho total del contenedor principal (30% + 10% + 60%) */
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+  }
+  
+  .menu-item-container {
+    box-sizing: border-box;
+    padding: 16px;
+  }
+
+  /* MenuItem.css */
+
+.menu-item-detail {
+    width: 100%; /* Asegura que el contenedor tome todo el ancho disponible */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .menu-item-detail img {
+    max-width: 100%; /* Limita el ancho de la imagen al 100% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+  }
+  
+  
+  .menu-list {
+    width: 30%; /* Ancho del menú */
+    border-right: 1px solid #ddd; /* Borde derecho para separación */
+  }
+  
+  .menu-detail {
+    width: 60%; /* Ancho del detalle */
+  }

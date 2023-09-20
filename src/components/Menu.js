@@ -1,24 +1,32 @@
 //Menu Component
 import React, { useState,useEffect } from 'react';
-import { firestore } from '../firebase/firebase';
+import '../styles/MenuItemStyle.css'; // Importa el archivo de estilos
 
-function MenuItem({ image, title, description, onClick }) {
+function MenuItem({ URL, Nombre, Descripcion,precio, onClick }) {
   return (
-    <div className="menu-item" onClick={() => onClick(image, title, description)}>
-      <img src={image} alt={title} />
+    <div className="menu-item" onClick={() => onClick(URL, Nombre, Descripcion,precio)}>
+      <img  src={URL} alt={Nombre} className="menu-item-image" />
+      <div className="menu-item-details">
+        <h3>{Nombre}</h3>
+        <p>{Descripcion}</p>
+        <p>Precio: ${precio}</p>
+      </div>
     </div>
   );
 }
 
 function MenuItemList({ menuItems, onItemClick }) {
+  console.log(menuItems)
   return (
     <div className="menu-item-list">
       {menuItems.map((item, index) => (
+      
         <MenuItem
           key={index}
-          image={item.image}
-          title={item.title}
-          description={item.description}
+          URL={item.URL}
+          Nombre={item.Nombre}
+          descripcion={item.Descripcion}
+          precio={item.Precio}
           onClick={onItemClick}
         />
       ))}
@@ -39,54 +47,29 @@ function MenuItemDetail({ image, title, description }) {
 function MenuPage({ menuItems }) {
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const handleItemClick = (image, title, description) => {
-    setSelectedItem({ image, title, description });
+  const handleItemClick = (URL, Nombre, descripcion,precio) => {
+    setSelectedItem({ URL, Nombre, descripcion,precio });
   };
-
-  useEffect(() => {
-    const fetchMenuData = async () => {
-      try {
-        const menuSnapshot = await firestore
-          .collection('menu') // Nombre de la colección "menu"
-          .doc('vsoe9Umoblhf7880a3QY') // ID del documento en "menu"
-          .collection('vsoe9Umoblhf7880a3QY') // Nombre de la subcolección "vsoe9Umoblhf7880a3QY"
-          .get();
-
-        if (!menuSnapshot.empty) {
-          // Verifica si hay documentos en la subcolección
-          menuSnapshot.forEach((doc) => {
-            console.log('ID del documento:', doc.id);
-            console.log('Datos del documento:', doc.data());
-            // Aquí puedes procesar los datos y mostrarlos en tu componente si es necesario
-          });
-        } else {
-          console.log('No se encontraron documentos en la subcolección');
-        }
-      } catch (error) {
-        console.error('Error al obtener datos del menú:', error);
-      }
-    };
-
-    fetchMenuData(); // Llama a la función para obtener datos del menú cuando el componente se monta
-  }, []);
 
 
   return (
     <div className="menu-page">
-      <div className="menu-item-container">
-        <MenuItemList menuItems={menuItems} onItemClick={handleItemClick} />
-      </div>
-      <div className="menu-item-container">
+      <div className="menu-container">
+        <div className="menu-item-container menu-list">
+            <MenuItemList menuItems={menuItems} onItemClick={handleItemClick} />
+        </div>
+      <div className="menu-item-container menu-detail">
         {selectedItem ? (
           <MenuItemDetail
-            image={selectedItem.image}
-            title={selectedItem.title}
-            description={selectedItem.description}
+            image={selectedItem.URL}
+            title={selectedItem.Nombre}
+            description={selectedItem.Descripcion}
           />
         ) : (
           <p>Selecciona un elemento del menú para ver los detalles.</p>
         )}
       </div>
+    </div>
     </div>
   );
 }
