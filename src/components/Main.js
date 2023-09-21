@@ -4,23 +4,28 @@ import NavigationBar from './Navbar';
 import Reservas from './Reservas';
 import MenuPage from './Menu';
 import Blog from './Blog';
+import Footer from './Footer';
 import { checkMenuData } from '../controllers/menuController';
+import { checkBlogData } from '../controllers/blogController';
 
 
 function Main() {
 
-  const [vistaActual, setVistaActual] = useState('menu');
+  const [vistaActual, setVistaActual] = useState('chelas');
   const [menuItems, setMenuItems] = useState([]); // Estado para almacenar los datos del menú
-
+  const [blogItems, setBlogItems] = useState([]); // Estado para almacenar los datos del menú
+  const [tacosItems, setTacosItems] = useState([]); // Estado para almacenar los datos del menú
+  
   const cambiarVista = (vista) => {
     setVistaActual(vista);
   };
+
   useEffect(() => {
-    // Cargar datos cuando el componente se monte
     async function loadMenuData() {
       try {
         const data = await checkMenuData();
         setMenuItems(data.chelas);
+        setTacosItems(data.tacos);
       } catch (error) {
         console.error('Error fetching data from Firebase:', error);
       }
@@ -29,46 +34,32 @@ function Main() {
     loadMenuData();
   }, []);
 
-  /*const menuItems = [
-    {
-      URL: 'https://firebasestorage.googleapis.com/v0/b/restaurant-app-4d79b.appspot.com/o/CervezaIPA.png?alt=media&token=07890664-140d-49b1-81aa-e62ceb38d710',
-      nombre: 'IPA',
-      Descripcion: 'Una cerveza IPA',
-      precio : 155 },
-    {
-      URL: '../public/img/menu4.png',
-      nombre: 'RedIPA',
-      Descripcion: 'Una RedIPA',
-      precio : 95 },
-    {
-      URL: '../public/img/menu4.png',
-      nombre: 'Stout',
-      Descripcion: 'Una cerveza ligera y refrescante con un perfil suave y limpio.',
-      precio : 155
-    },
-    {
-      URL: '../public/img/menu4.png',
-      nombre: 'Lager',
-      Descripcion: 'Una cerveza ligera y refrescante con un perfil suave y limpio.',
-      precio : 155
-    },
-    {
-      
-      URL: '../public/img/menu4.png',
-      nombre: 'Pilser',
-      Descripcion: 'Una cerveza pilsner',
-      precio : 105
-    },
-  ];
-*/
-  //var datosMenu2;
-  
+  useEffect(() => {
+    async function loadBlogData() {
+      try {
+        const data = await checkBlogData();
+        setBlogItems(data);
+        console.log(data)
+      } catch (error) {
+        console.error('Error fetching data from Firebase:', error);
+      }
+    }
+
+    loadBlogData();
+  }, []);
+
+
   return (
     <div>
       <NavigationBar cambiarVista={cambiarVista} />
-      {vistaActual === 'menu' && <MenuPage menuItems={menuItems}/>}
-      {vistaActual === 'blog' && <Blog />}
+      <br/>
+
+      {vistaActual === 'tacos' && <MenuPage menuItems={tacosItems}/>}
+      {vistaActual === 'chelas' && <MenuPage menuItems={menuItems}/>}
+      {vistaActual === 'blog' && <Blog entradas={blogItems}/>}
       {vistaActual === 'reservas' && <Reservas />}
+      <br/>
+      <Footer/>
     </div>
   );
 }

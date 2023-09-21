@@ -3,22 +3,27 @@
 .menu-item {
     width: 80%;
     padding: 8px;
-    background-color: #f0f0f0;
+    background-color: #F9DB5C;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     cursor: pointer;
+    border-radius: 10%;
+    margin-bottom: 2%;
   }
   
   .menu-item-image {
     width: 100%;
     max-height: 60%;
     object-fit: cover;
+    border-radius: 10%;
+    /*margin-right: 10px;*/
   }
   
   .menu-item-details {
     margin-top: 8px;
+    flex: 1;
   }
 
   .menu-page {
@@ -30,14 +35,27 @@
     width: 80%; /* Ancho total del contenedor principal (30% + 10% + 60%) */
     display: flex;
     justify-content: space-between;
-    border: 1px solid #ddd;
+   
+   
   }
   
   .menu-item-container {
     box-sizing: border-box;
     padding: 16px;
+   
   }
 
+  .menu-item h3 {
+    font-size: 18px;
+  }
+  
+  .menu-item p {
+    font-size: 14px;
+  }
+  
+  .menu-item p.price {
+    font-weight: bold;
+  }
   /* MenuItem.css */
 
 .menu-item-detail {
@@ -49,14 +67,17 @@
   }
   
   .menu-item-detail img {
-    max-width: 100%; /* Limita el ancho de la imagen al 100% del contenedor */
+    max-width: 70%; /* Limita el ancho de la imagen al 100% del contenedor */
     height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10% 
   }
   
   
   .menu-list {
     width: 30%; /* Ancho del menú */
-    border-right: 1px solid #ddd; /* Borde derecho para separación */
+    /*border-right: 1px solid #ddd; /* Borde derecho para separación */
+    max-height: 500px; /* Altura máxima del contenedor */
+    overflow-y: auto; 
   }
   
   .menu-detail {

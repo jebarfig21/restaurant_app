@@ -1,11 +1,15 @@
 import { firestore } from '../firebase/firebase';
+import { doc, setDoc } from "firebase/firestore";
 
-export async function agregarReserva(reservaData) {
-  try {
-    await firestore.collection('reservaciones').add(reservaData);
-    console.log('Reserva agregada con éxito');
-  } catch (error) {
-    console.error('Error al agregar la reserva:', error);
-  }
+export async function agregarReserva(name, apellido, fecha,hora, mail, personas, telefono) {
+  await setDoc(doc(firestore, "reservaciones","TBTf1wupicoWUDjXU6it"), {
+    nombre: name,
+    apellido:apellido,
+    fecha:fecha,
+    hora : hora,
+    personas : personas,
+    mail: mail,
+    telefono:telefono
+}); 
 }
 

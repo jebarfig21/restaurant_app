@@ -1,5 +1,5 @@
 //Navbar Component
-import React, { useState } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
@@ -18,15 +18,22 @@ function NavigationBar({cambiarVista }) {
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Button variant="outline-secondary"  onClick={() => cambiarVista('menu')}>
-              Menu
+            <Button variant="outline-secondary"  onClick={() => cambiarVista('chelas')}>
+             Chelas
             </Button>
+
+            <Button variant="outline-secondary" onClick={() => cambiarVista('tacos')} >
+              Tacos
+            </Button>
+
             <Button variant="outline-secondary"  onClick={() => cambiarVista('reservas')}>
               Reservas
             </Button>
+            
             <Button variant="outline-secondary" onClick={() => cambiarVista('blog')} >
               Blog
             </Button>
+
        </Container>
     </Navbar>
   );

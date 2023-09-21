@@ -1,40 +1,47 @@
 //Blog Component
 import React from 'react';
+import '../styles/BlogStyle.css'; 
 
 // Componente de Entrada del Blog
-function Entrada({ titulo, resumen, imagenSrc, contenido }) {
+function Entrada({ titulo, autor, imagenSrc, contenido }) {
   return (
     <div className="entrada">
-      <div className="entrada-imagen">
-        <img src={imagenSrc} alt="Imagen de la entrada" />
+      <div className="entrada-titulo">
+     
+          <h2>{titulo}</h2>
+          <p>{autor}</p>
+          <div className="entrada-imagen">
+            <img src={imagenSrc} alt="Imagen de la entrada" />
+          </div>
+        </div>
+        <div className="entrada-contenido">
+     
+     
+         <div dangerouslySetInnerHTML={{ __html: contenido}} />
+         </div>
+         <hr/>
+
       </div>
-      <div className="entrada-contenido">
-        <h2>{titulo}</h2>
-        <p>{resumen}</p>
-        <p>{contenido}</p>
-      </div>
-    </div>
+     
   );
 }
 
 // Componente de Blog que muestra varias entradas
-function Blog() {
+function Blog({entradas}) {
+  console.log(Object.values(entradas))
+  
   return (
     <div className="blog">
-      <Entrada
-        titulo="Título de la Entrada 1"
-        resumen="Resumen de la Entrada 1"
-        imagenSrc="URL_IMAGEN_1"
-        contenido="Contenido de la Entrada 1..."
-      />
-      <Entrada
-        titulo="Título de la Entrada 2"
-        resumen="Resumen de la Entrada 2"
-        imagenSrc="URL_IMAGEN_2"
-        contenido="Contenido de la Entrada 2..."
-      />
-      {/* Puedes agregar más entradas aquí */}
-    </div>
-  );
+      
+       {Object.values(entradas).map((entrada, index) => (
+        <Entrada
+          key={index} // Asegúrate de asignar una clave única a cada componente
+          titulo={entrada.Titulo}
+          autor={entrada.Autor}
+          imagenSrc={entrada.URL_imagen}
+          contenido={entrada.Cuerpo}
+        />
+        ))}    
+    </div>)
 }
 export default Blog;
