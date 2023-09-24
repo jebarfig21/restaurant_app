@@ -83,3 +83,33 @@
   .menu-detail {
     width: 60%; /* Ancho del detalle */
   }
+
+  @media screen and (max-width: 768px) {
+      .menu-list {
+        width: 60%; /* Ancho del menú */
+        /*border-right: 1px solid #ddd; /* Borde derecho para separación */
+        max-height: 500px; /* Altura máxima del contenedor */
+        overflow-y: auto; 
+      }
+      .menu-item {
+        width: 100%;
+        background-color: #F9DB5C;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 10%;
+        margin-bottom: 2%;
+      }
+
+      .menu-item-container {
+        box-sizing: border-box;
+        padding-right: 10px;
+       
+      }
+    
+    
+    }
+  
+  

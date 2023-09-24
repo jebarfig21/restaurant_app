@@ -10,13 +10,15 @@ function NavigationBar({cambiarVista }) {
   	return (
     <Navbar expand="lg" className="gold">
       <Container>
+      <div className="contenedor-logo">
         <Navbar.Brand href="#home">
-          <img
-            src={process.env.PUBLIC_URL + '/img/logo.png'}
-            className="d-inline-block align-top"
-            alt="Logo"
-          />
-        </Navbar.Brand>
+            <img
+              src={process.env.PUBLIC_URL + '/img/logo.png'}
+              className="d-inline-block align-top"
+              alt="Logo"
+            />
+          </Navbar.Brand>
+        </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Button variant="outline-secondary"  onClick={() => cambiarVista('chelas')}>
              Chelas

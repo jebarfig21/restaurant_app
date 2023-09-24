@@ -32,6 +32,17 @@
   color: #e90c0c; /* Cambia el color del texto en el hover */
 }
 
+.contenedor-logo {
+  display: block; /* Oculta el contenedor de la imagen en pantallas grandes */
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media screen and (max-width: 768px) {
+  .contenedor-logo {
+    display: none; /* Muestra el contenedor de la imagen en pantallas pequeñas */
+  }
+}
+
 
 
 

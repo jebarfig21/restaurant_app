@@ -13,20 +13,17 @@ function Reservas() {
   const [mail, setMail] = useState('');
   const [phone, setPhone] = useState('');
   
-  const handleAgregarReserva = () => {
+  function handleAgregarReserva(event){
     // ... lógica para obtener los datos de la reserva
-    console.log('Datos del formulario:', {
-      name,
-      lastName,
-      reservationDate: startDate,
-      reservationTime,
-      partySize,
-      mail,
-      phone
-    });
-    
-
+    event.preventDefault()
     agregarReserva(name,lastName,startDate,reservationTime,mail,partySize,phone);
+    setLastName("")
+    setName("")
+    setReservationTime("")
+    setStartDate(null)
+    setMail("")
+    setPartySize("")
+    setPhone("")
   };
 
   /**
@@ -36,7 +33,7 @@ function Reservas() {
     <div className="container">
       <div className="row">
         <div className="col-md-4">
-          <form className="formulario-especifico"   onSubmit={handleAgregarReserva}>
+          <form className="formulario-especifico"  onSubmit={handleAgregarReserva} >
             <h2>Reserva</h2>
             <div className="form-group">
               <label htmlFor="name">Nombre</label>
@@ -129,7 +126,7 @@ function Reservas() {
             </button>
           </form>
         </div>
-        <div className="col-md-8">
+        <div className="col-md-8 img-reserva">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/restaurant-app-4d79b.appspot.com/o/TacoPortada.png?alt=media&token=3f38960a-4a83-4bcf-9424-73c6da940453"
             alt="Imagen del restaurante"

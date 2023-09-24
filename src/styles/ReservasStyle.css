@@ -30,7 +30,15 @@
     cursor: pointer;
   }
   
+ 
   /* Cambiar estilo del cursor al pasar sobre el botón del formulario específico */
   .formulario-especifico .btn-primary:hover {
     background-color: gold; /* Cambia el color al pasar el cursor */
   }
+  @media screen and (max-width: 768px) {
+ 
+    .img-reserva{
+      display: none;
+    }
+
+ } 
