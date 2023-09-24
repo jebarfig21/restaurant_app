@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+#Restaurant App
+##Chelas y Tacos is here
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El proyecto esta basado en un concepto de cervecería artesanal con tacos, inspirado en colores claros y cerveceros, y una interfaz de usario de una sola página creada en react, apoyandonos de FireStore para el consumo de datos.
 
-## Available Scripts
+###Despliegue
+El proyecto se despliguea con npm start, ya que fue creado con react/npm por lo cual conserva la estructura básica de una aplicación en react.
 
-In the project directory, you can run:
+##Secciones
 
-### `npm start`
+###Chelas
+Es el menú de  cervezas, cuenta con dos grandes secciones, un listado de nuestra seleccion de cerveza artesanal finamente seleccionada, así como una sección de detalles, donde se muestra mas infomación del producto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+###Tacos
+Separando uestra sección de menú en dos partes, tenemos los tacos, deliciosos tacos de Pastor, Suadero y variedades, tiene la misma estructura que el menú anterior
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+###Reservaciones
+Es un formulario sencillo que envia una reservacion unica a nuestra base de datos de firestore, para esta conexión usamos variables de entorno, las cuales se encargan de realizar conexiones a la base para escribir información. Queda pendiente como trabajo futuro delimitar un límite de reservaciones, hora y fechas exclusivas y por supuesto, una sección de consulta para ver o editar mi reservas, sin embargo eso estaba fuera del scope de este sprint
 
-### `npm test`
+###Blog
+Una selección de artículos inspirados en la tematica del restaurante, para esta seción el buen chatgpt nos presto  sus habilidades de redacción en lugar de usar un lorem epsium
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##
+Carateristicas : 
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Adapatable a móviles (Reactivo)
+* Header y Footer
+* Hocks y Promps de React
+* Estilos de CSS
+* Estructura de carpetas ordenadas siguiendo cleanCode
+* Secciones de menu, blog y reservaciones
+* Lectura y escritura asíncrona con FireStore
+* Textos de blog generados con chatgpt
+* Imagenes de muestra generadas por WALL-E 2
+* Algo de código de apoyo fue obenido de templates en stackoverflow, este ódigo sobre todo correponde a temas de css y funciones auxiliares
+* 
